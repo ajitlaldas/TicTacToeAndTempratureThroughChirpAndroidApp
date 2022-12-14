@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Temeprature Through Cricket Chirps</string>
+    <string name="etNoOfChirps_hint">Enter no of chirps in 30 second</string>
+    <string name="imageThermometer_contentDescriptor">Thermometer Image</string>
+    <string name="buttonNoOfChirps_text">Enter</string>
+    <string name="tvDescription_text">Do you know, you can calucate approximate temperature by counting number of cricket chirps !!!\nEnter no of chirps in 30 seconds above and press Enter.</string>
+    <string name="tvTemperatureResult_text">Approx Temperature</string>
+    <string name="buttonChangeLayout_text">Play TicTacTo</string>
+    <string name="buttonChangeToOriginalLayout_text">Go to Home</string>
+    <string name="buttonGoToHome_text">Go To Home</string>
+    <string name="tvTicTacToe_text"> O | O | O \n---|---|---\n O | O | O \n---|---|---\n O | O | O \n</string>
+    <string name="tvTicTacToe_cellTextSize"> 16pt</string>
+    <string name="tvGameStatus_text">"GAME IS ON VATSAL</string>
+    <string name="buttonRestartGame_text">RESTART TIC-TAC-TOE</string>
+</resources>
