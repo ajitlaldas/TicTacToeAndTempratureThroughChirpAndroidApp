@@ -12,4 +12,11 @@
     <string name="tvTicTacToe_cellTextSize"> 16pt</string>
     <string name="tvGameStatus_text">"GAME IS ON VATSAL</string>
     <string name="buttonRestartGame_text">RESTART TIC-TAC-TOE</string>
+    <string name="buttonSesnorList_text">Display Sensors On This Phone</string>
+    <string name="buttonAddContact_contentDescriptor">Click to Add Contact</string>
+    <string name="etContactName_hint">Enter Contact\'s Name</string>
+    <string name="etContactPhoneNo_hint">Enter Contact\'s No</string>
+    <string name="etContactAddress_hint">Enter Contact\'s Address</string>
+    <string name="etContactWebAddress_hint">Enter Contact\'s Web Address</string>
+    <string name="buttonSubmitContact_text">SUBMIT</string>
 </resources>

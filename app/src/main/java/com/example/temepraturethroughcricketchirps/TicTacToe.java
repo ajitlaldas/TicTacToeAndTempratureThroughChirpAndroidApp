@@ -122,8 +122,9 @@ public class TicTacToe extends AppCompatActivity {
         buttonGoToHome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view1) {
-                Intent intent = new Intent(view1.getContext(), MainActivity.class);
-                view1.getContext().startActivity(intent);
+                //Intent intent = new Intent(view1.getContext(), MainActivity.class);
+                //view1.getContext().startActivity(intent);
+                finish();
             }
         });
 
