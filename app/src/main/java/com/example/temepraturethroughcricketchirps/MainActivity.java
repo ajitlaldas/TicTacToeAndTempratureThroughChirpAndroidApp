@@ -7,6 +7,7 @@ import android.net.Uri;
 import android.provider.ContactsContract;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.Layout;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -28,8 +29,10 @@ public class MainActivity extends AppCompatActivity {
     ImageButton buttonPlaceCall;
     ImageButton buttonOpenWebAddress;
     ImageButton buttonOpenAddress;
+    ImageButton buttonPlayTableGame;
     TextView tvTemperatureResult;
-    TextView tvDescription;
+    //TextView tvDescription;
+
 
     DecimalFormat temperatureResultFormatter;
 
@@ -55,6 +58,7 @@ public class MainActivity extends AppCompatActivity {
         buttonPlaceCall = findViewById(R.id.buttonPlaceCall);
         buttonOpenAddress =findViewById(R.id.buttonOpenAddress);
         buttonOpenWebAddress = findViewById(R.id.buttonOpenWebAddress);
+        buttonPlayTableGame =findViewById(R.id.buttonPlayTableGame);
         tvTemperatureResult = findViewById(R.id.tvTemperatureResult);
 
 
@@ -112,6 +116,14 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view1) {
                 Intent intent = new Intent(MainActivity.this, com.example.temepraturethroughcricketchirps.AddContact.class);
                 startActivityForResult(intent, REQUEST_CODE_START_ADDCONTACT_ACTIVITY);
+            }
+        });
+
+        buttonPlayTableGame.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view1) {
+                Intent intent = new Intent(MainActivity.this, com.example.temepraturethroughcricketchirps.TableGame.class);
+                startActivity(intent);
             }
         });
 

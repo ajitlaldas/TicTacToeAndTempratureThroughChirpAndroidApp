@@ -19,4 +19,7 @@
     <string name="etContactAddress_hint">Enter Contact\'s Address</string>
     <string name="etContactWebAddress_hint">Enter Contact\'s Web Address</string>
     <string name="buttonSubmitContact_text">SUBMIT</string>
+    <string name="buttonPlayTableGame_contentDescriptor">Pay Table Game</string>
+    <string name="etTableGameFor_hint">Enter No to Play Game For: </string>
+    <string name="buttonTableGameFor_text">START</string>
 </resources>
