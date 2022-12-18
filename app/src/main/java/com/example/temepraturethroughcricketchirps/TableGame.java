@@ -2,9 +2,14 @@ package com.example.temepraturethroughcricketchirps;
 
 import android.content.Context;
 import android.content.Intent;
+import android.media.MediaDescrambler;
+import android.media.MediaPlayer;
+import android.provider.MediaStore;
+import android.support.design.widget.TabLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Layout;
+import android.text.method.ScrollingMovementMethod;
 import android.view.View;
 import android.view.animation.AlphaAnimation;
 import android.view.inputmethod.EditorInfo;
@@ -19,6 +24,58 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+class TableSound{
+
+    static int [] sounds = {R.raw.en_num_ja
+            ,R.raw.en_num_01, R.raw.en_num_02, R.raw.en_num_03, R.raw.en_num_04
+            ,R.raw.en_num_05, R.raw.en_num_06, R.raw.en_num_07, R.raw.en_num_08
+            ,R.raw.en_num_09, R.raw.en_num_10, R.raw.en_num_11, R.raw.en_num_12
+            ,R.raw.en_num_13, R.raw.en_num_14, R.raw.en_num_15, R.raw.en_num_16
+            ,R.raw.en_num_17, R.raw.en_num_18, R.raw.en_num_19, R.raw.en_num_20
+    };
+
+    static MediaPlayer[] createSound(Context context, int tableNumber, int tableMultiplier){
+        MediaPlayer[] media = new MediaPlayer[3];
+        media[0] = MediaPlayer.create(context, sounds[tableNumber]);
+        media[1] = MediaPlayer.create(context, sounds[tableMultiplier]);
+        media[2] = MediaPlayer.create(context, sounds[0]);
+        return media;
+    }
+
+    static void playSound(MediaPlayer [] media){
+        media[0].start();
+
+        media[0].setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+            @Override
+            public void onCompletion(MediaPlayer media1) {
+                media[1].start();
+                }
+
+            });
+
+
+        media[1].setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+            @Override
+            public void onCompletion(MediaPlayer media1) {
+                media[2].start();
+            }
+
+        });
+
+        media[2].setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+            @Override
+            public void onCompletion(MediaPlayer media1) {
+                media[0].release();
+                media[1].release();
+                media[2].release();
+            }
+
+        });
+    }
+
+
+
+}
 
 public class TableGame extends AppCompatActivity {
 
@@ -30,7 +87,15 @@ public class TableGame extends AppCompatActivity {
     TextView [] tvTableRow = new TextView[10];
     TextView [] tvChoiceRow = new TextView[5];
     int tvTableRowCurrentIndex = 0, tvChoiceRowCurrentIndex = 0;
+    MediaPlayer [] media = new MediaPlayer[3];
+
+
     boolean gameON = false;
+    final int PURPLE = 0xFF9E02B8;
+    final int GREEN = 0xFF76FF03;
+    final int ORANGE = 0xFFFF5722;
+    final int BUFF = 0xFFED6868;
+    final int MUSTARD_LIGHT = 0x7CFF9100;
 
     static int tableNumber;
     static int correctAnswerIndex;
@@ -47,6 +112,7 @@ public class TableGame extends AppCompatActivity {
 
         headerLayout= findViewById(R.id.headerLayout);
         tablePlayAreaLayout = findViewById(R.id.tablePlayAreaLayout);
+        tablePlayAreaLayout.setVerticalScrollBarEnabled(true);
         choiceLayout = findViewById(R.id.choiceLayout);
 
         etTableGameFor = (EditText) headerLayout.getChildAt(0);
@@ -76,6 +142,7 @@ public class TableGame extends AppCompatActivity {
             });
         }
         tvChoiceRowCurrentIndex = 0;
+
 
         buttonTableGameFor.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -107,6 +174,8 @@ public class TableGame extends AppCompatActivity {
                     tableMultiplier = 1;
                     correctAnswerClicked = false;
                     gameON = true;
+                    media = TableSound.createSound(TableGame.this, tableNumber, tableMultiplier);
+                    TableSound.playSound(media);
                     playTableGame();
 
                 }
@@ -123,13 +192,31 @@ public class TableGame extends AppCompatActivity {
             }
         });
 
+        /*while (true) {
+
+            if(gameON == true) {
+
+                media[0].start();
+                media[1].start();
+                media[2].start();
+            }
+            else
+            {
+                media[0].release();
+                media[1].release();
+                media[2].release();
+            }
+        }*/
+
 
     }
 
     protected void playTableGame(){
         if (gameON == true){
-            if(tableMultiplier == 1) {
+            if(tableMultiplier < 10 && correctAnswerClicked == false) {
                 tvTableRow[tvTableRowCurrentIndex].setText(createTableRowText());
+                tvTableRow[tvTableRowCurrentIndex].setBackgroundColor(PURPLE);//
+                tvTableRow[tvTableRowCurrentIndex].setTextColor(GREEN);
                 tvTableRow[tvTableRowCurrentIndex].setVisibility(View.VISIBLE);
                 AlphaAnimation alphaAnimation = new AlphaAnimation(0.1f, 1.0f);
                 alphaAnimation.setDuration(600l);
@@ -143,11 +230,20 @@ public class TableGame extends AppCompatActivity {
             }
             if((tableMultiplier < 10 && correctAnswerClicked) == true) {
                 tvTableRow[tvTableRowCurrentIndex].setText(createTableRowText());
+                tvTableRow[tvTableRowCurrentIndex].setBackgroundColor(GREEN);
+                tvTableRow[tvTableRowCurrentIndex].setTextColor(PURPLE);
+                //tvTableRow[tvTableRowCurrentIndex].setTint
                 tableMultiplier++;
                 tvTableRowCurrentIndex++;
                 correctAnswerClicked = false;
                 tvTableRow[tvTableRowCurrentIndex].setVisibility(View.VISIBLE);
                 tvTableRow[tvTableRowCurrentIndex].setText(createTableRowText());
+                tvTableRow[tvTableRowCurrentIndex].setBackgroundColor(PURPLE);//
+                tvTableRow[tvTableRowCurrentIndex].setTextColor(GREEN);
+                AlphaAnimation alphaAnimation = new AlphaAnimation(0.1f, 1.0f);
+                alphaAnimation.setDuration(600l);
+                tvTableRow[tvTableRowCurrentIndex].setAlpha(1.0f);
+                tvTableRow[tvTableRowCurrentIndex].startAnimation(alphaAnimation);
                 setChoiceList();
                 for (tvChoiceRowCurrentIndex=0; tvChoiceRowCurrentIndex<5; tvChoiceRowCurrentIndex++){
                     tvChoiceRow[tvChoiceRowCurrentIndex].setText(choiceList.get(tvChoiceRowCurrentIndex).toString());
@@ -155,8 +251,12 @@ public class TableGame extends AppCompatActivity {
                 }
 
             }
-            if((tableMultiplier == 10 && correctAnswerClicked) == true)
+            if((tableMultiplier == 10 && correctAnswerClicked) == true) {
+                tvTableRow[tvTableRowCurrentIndex].setBackgroundColor(GREEN);
+                tvTableRow[tvTableRowCurrentIndex].setTextColor(PURPLE);
                 tvTableRow[tvTableRowCurrentIndex].setText(createTableRowText());
+                gameON = false;
+            }
 
             /*if(tableMultiplier>=10){
                 gameON = false;

@@ -5,6 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:accessibilityLiveRegion="assertive"
+    android:background="#7CFF9100"
+    android:backgroundTint="#7CFF9100"
     android:backgroundTintMode="src_atop"
     android:orientation="vertical"
     tools:context=".TableGame">
@@ -13,6 +15,8 @@
         android:id="@+id/headerLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="#7CFF9100"
+        android:backgroundTint="#7CFF9100"
         android:orientation="horizontal">
 
         <EditText
@@ -20,6 +24,8 @@
             android:layout_width="140dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:background="#7CFF9100"
+            android:backgroundTint="#7CFF9100"
             android:ems="10"
             android:hint="@string/etTableGameFor_hint"
             android:inputType="number" />
@@ -29,7 +35,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:backgroundTint="@color/Orange"
+            android:background="#ED6868"
+            android:backgroundTint="#ED6868"
             android:text="@string/buttonTableGameFor_text"
             android:textSize="20sp"
             android:textStyle="bold" />
@@ -38,18 +45,27 @@
     <LinearLayout
         android:id="@+id/gamePlayLayout"
         android:layout_width="match_parent"
-        android:layout_height="530dp"
-        android:background="#FF9100"
-        android:backgroundTint="#408FE8F3"
-        android:orientation="horizontal">
+        android:layout_height="wrap_content"
+        android:background="#7CFF9100"
+        android:backgroundTint="#7CFF9100"
+        android:orientation="horizontal"
+        android:scrollIndicators="right"
+        android:scrollbarAlwaysDrawVerticalTrack="true"
+        android:scrollbarSize="10dp"
+        android:scrollbars="vertical">
 
         <LinearLayout
             android:id="@+id/tablePlayAreaLayout"
-            android:layout_width="253dp"
-            android:layout_height="match_parent"
-            android:background="#FF9100"
-            android:backgroundTint="#408FE8F3"
-            android:orientation="vertical">
+            android:layout_width="243dp"
+            android:layout_height="wrap_content"
+            android:background="#7CFF9100"
+            android:backgroundTint="#7CFF9100"
+            android:orientation="vertical"
+            android:scrollIndicators="right"
+            android:scrollbarAlwaysDrawVerticalTrack="true"
+            android:scrollbarSize="10dp"
+            android:scrollbarStyle="insideInset"
+            android:scrollbars="vertical">
 
             <TextView
                 android:id="@+id/tvTableRow1"
@@ -59,7 +75,7 @@
                 android:layout_marginTop="8dp"
                 android:layout_marginRight="4dp"
                 android:layout_marginBottom="2dp"
-                android:background="#5C00E5FF"
+                android:background="#7CFF9100"
                 android:elevation="50dp"
                 android:fontFamily="monospace"
                 android:outlineProvider="paddedBounds"
@@ -75,8 +91,8 @@
                 android:stateListAnimator="@android:anim/fade_in"
                 android:text="2 X 1 =   "
                 android:textAlignment="textStart"
-                android:textColor="@color/black"
-                android:textSize="28sp"
+                android:textColor="#76FF03"
+                android:textSize="22sp"
                 android:textStyle="bold"
                 android:typeface="monospace" />
 
@@ -105,7 +121,7 @@
                 android:text="2 X 1 =   "
                 android:textAlignment="textStart"
                 android:textColor="@color/black"
-                android:textSize="28sp"
+                android:textSize="22sp"
                 android:textStyle="bold"
                 android:typeface="monospace" />
 
@@ -134,7 +150,7 @@
                 android:text="2 X 1 =   "
                 android:textAlignment="textStart"
                 android:textColor="@color/black"
-                android:textSize="28sp"
+                android:textSize="22sp"
                 android:textStyle="bold"
                 android:typeface="monospace" />
 
@@ -163,7 +179,7 @@
                 android:text="2 X 1 =   "
                 android:textAlignment="textStart"
                 android:textColor="@color/black"
-                android:textSize="28sp"
+                android:textSize="22sp"
                 android:textStyle="bold"
                 android:typeface="monospace" />
 
@@ -192,7 +208,7 @@
                 android:text="2 X 1 =   "
                 android:textAlignment="textStart"
                 android:textColor="@color/black"
-                android:textSize="28sp"
+                android:textSize="22sp"
                 android:textStyle="bold"
                 android:typeface="monospace" />
 
@@ -221,7 +237,7 @@
                 android:text="2 X 1 =   "
                 android:textAlignment="textStart"
                 android:textColor="@color/black"
-                android:textSize="28sp"
+                android:textSize="22sp"
                 android:textStyle="bold"
                 android:typeface="monospace" />
 
@@ -250,7 +266,7 @@
                 android:text="2 X 1 =   "
                 android:textAlignment="textStart"
                 android:textColor="@color/black"
-                android:textSize="28sp"
+                android:textSize="22sp"
                 android:textStyle="bold"
                 android:typeface="monospace" />
 
@@ -279,7 +295,7 @@
                 android:text="2 X 1 =   "
                 android:textAlignment="textStart"
                 android:textColor="@color/black"
-                android:textSize="28sp"
+                android:textSize="22sp"
                 android:textStyle="bold"
                 android:typeface="monospace" />
 
@@ -308,7 +324,7 @@
                 android:text="2 X 1 =   "
                 android:textAlignment="textStart"
                 android:textColor="@color/black"
-                android:textSize="28sp"
+                android:textSize="22sp"
                 android:textStyle="bold"
                 android:typeface="monospace" />
 
@@ -337,7 +353,7 @@
                 android:text="2 X 1 =   "
                 android:textAlignment="textStart"
                 android:textColor="@color/black"
-                android:textSize="28sp"
+                android:textSize="22sp"
                 android:textStyle="bold"
                 android:typeface="monospace" />
         </LinearLayout>
@@ -348,8 +364,8 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal|center_vertical"
             android:layout_marginLeft="30dp"
-            android:background="#FF9100"
-            android:backgroundTint="#408FE8F3"
+            android:background="#7CFF9100"
+            android:backgroundTint="#7CFF9100"
             android:foregroundGravity="center_vertical|center_horizontal"
             android:gravity="center_horizontal|center_vertical"
             android:orientation="vertical">
@@ -363,6 +379,7 @@
                 android:layout_marginRight="4dp"
                 android:layout_marginBottom="10dp"
                 android:background="@color/brown"
+                android:backgroundTint="@color/black"
                 android:clickable="true"
                 android:elevation="50dp"
                 android:fontFamily="monospace"
@@ -393,6 +410,7 @@
                 android:layout_marginRight="4dp"
                 android:layout_marginBottom="10dp"
                 android:background="@color/brown"
+                android:backgroundTint="@color/black"
                 android:clickable="true"
                 android:elevation="50dp"
                 android:fontFamily="monospace"
@@ -423,6 +441,7 @@
                 android:layout_marginRight="4dp"
                 android:layout_marginBottom="10dp"
                 android:background="@color/brown"
+                android:backgroundTint="@color/black"
                 android:clickable="true"
                 android:elevation="50dp"
                 android:fontFamily="monospace"
@@ -452,7 +471,8 @@
                 android:layout_marginTop="14dp"
                 android:layout_marginRight="4dp"
                 android:layout_marginBottom="10dp"
-                android:background="@color/brown"
+                android:background="@color/black"
+                android:backgroundTint="@color/black"
                 android:clickable="true"
                 android:elevation="50dp"
                 android:fontFamily="monospace"
@@ -462,7 +482,7 @@
                 android:paddingRight="2dp"
                 android:paddingBottom="2dp"
                 android:requiresFadingEdge="horizontal|vertical"
-                android:shadowColor="#FFEA00"
+                android:shadowColor="@color/white"
                 android:shadowDx="3"
                 android:shadowDy="3"
                 android:shadowRadius="10"
@@ -482,7 +502,8 @@
                 android:layout_marginTop="14dp"
                 android:layout_marginRight="4dp"
                 android:layout_marginBottom="10dp"
-                android:background="@color/brown"
+                android:background="@color/black"
+                android:backgroundTint="@color/black"
                 android:clickable="true"
                 android:elevation="50dp"
                 android:fontFamily="monospace"
@@ -492,7 +513,7 @@
                 android:paddingRight="2dp"
                 android:paddingBottom="2dp"
                 android:requiresFadingEdge="horizontal|vertical"
-                android:shadowColor="#FFEA00"
+                android:shadowColor="@color/white"
                 android:shadowDx="3"
                 android:shadowDy="3"
                 android:shadowRadius="10"
@@ -507,9 +528,10 @@
 
     </LinearLayout>
 
-    <Button
-        android:id="@+id/button2"
+    <LinearLayout
+        android:id="@+id/gameStatusLayout"
         android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:text="Button" />
+        android:layout_height="match_parent"
+        android:orientation="horizontal"></LinearLayout>
+
 </LinearLayout>
